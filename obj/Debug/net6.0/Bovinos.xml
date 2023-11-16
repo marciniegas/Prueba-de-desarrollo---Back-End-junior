@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bovinos</name>
+    </assembly>
+    <members>
+        <member name="M:Bovinos.Controllers.AnimalController.Get(System.Int32)">
+            <summary>
+            Obtiene un animal por su identificador.
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Obtener todas las entidades(usando paginación del lado del servidor)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.Create(Bovinos.Models.Animal)">
+             <summary>
+            Crear una entidad nueva
+             </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.Update(System.Int32,Bovinos.Models.Animal)">
+             <summary>
+            Editar una entidad existente
+             </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.Delete(System.Int32)">
+            <summary>
+            Eliminar un entidad existente
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.GetActiveAnimalsCountByRaze">
+            <summary>
+            Obtener un servicio que retorne el número de animales activos agrupados por su raza
+            </summary>
+        </member>
+    </members>
+</doc>
