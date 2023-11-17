@@ -53,17 +53,17 @@ El cliente necesita un sistema de información que le permita gestionar informac
 - Configura la conexión de la base de datos en el archivo appsettings.json:
   ```bash
     Server=localhost;Database=bovino_informacion;User=xxxxxxx;Password=xxxxxx;Port=3306
--Utiliza la terminal de Visual Basic y escribe el comando para exportar las tablas a MySQL.
+- Utiliza la terminal de Visual Basic y escribe el comando para exportar las tablas a MySQL.
   ```bash
     dotnet ef database update
 - Se comparte un archivo con el nombre "ScripDatosBovinos.sql" para utilizarlo en MySQL Workbench y llenar las tablas con datos de ejemplo.
 -Inicia la depuración del proyecto (en la prueba se utilizó https://localhost:7091/swagger/index.html).
 - El siguiente paso ya es verificar los controladores, por ejemplo, en "Obtener un animal por identificador":
--- Haz clic sobre él.
--- Haz clic en Try it out.
--- Coloca un Id (int).
--- Haz clic en Execute
--- Mostrará el resultado de la tarea en la parte inferior- 
+  -- Haz clic sobre él.
+  -- Haz clic en Try it out.
+  -- Coloca un Id (int).
+  -- Haz clic en Execute
+  -- Mostrará el resultado de la tarea en la parte inferior- 
 
 
 
