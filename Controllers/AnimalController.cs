@@ -20,7 +20,7 @@ namespace Bovinos.Controllers
 
 
         /// <summary>
-        /// Obtiene un animal por su identificador.
+        /// Obtener un animal por identificador.
         /// </summary>
         [HttpGet("{id}", Name = "GetAnimalById")]
 

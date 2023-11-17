@@ -6,7 +6,7 @@
     <members>
         <member name="M:Bovinos.Controllers.AnimalController.Get(System.Int32)">
             <summary>
-            Obtener un animal por identificador.
+            Obtiene un animal por su identificador.
             </summary>
         </member>
         <member name="M:Bovinos.Controllers.AnimalController.Update(System.Int32,Bovinos.Models.Animal)">
