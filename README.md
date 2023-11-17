@@ -56,7 +56,6 @@ El cliente necesita un sistema de información que le permita gestionar informac
 -Utiliza la terminal de Visual Basic y escribe el comando para exportar las tablas a MySQL.
   ```bash
     dotnet ef database update
-
 - Se comparte un archivo con el nombre "ScripDatosBovinos.sql" para utilizarlo en MySQL Workbench y llenar las tablas con datos de ejemplo.
 -Inicia la depuración del proyecto (en la prueba se utilizó https://localhost:7091/swagger/index.html).
 - El siguiente paso ya es verificar los controladores, por ejemplo, en "Obtener un animal por identificador":
