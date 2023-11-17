@@ -22,7 +22,6 @@ namespace Bovinos.Migrations
             modelBuilder.Entity("Bovinos.Models.Animal", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Comentarios")
@@ -45,10 +44,8 @@ namespace Bovinos.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasDefaultValue(0m);
 
-                    b.Property<string>("Raza")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                    b.Property<int>("RazaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Sexo")
                         .IsRequired()
@@ -59,7 +56,40 @@ namespace Bovinos.Migrations
                     b.HasIndex("Nombre")
                         .IsUnique();
 
+                    b.HasIndex("RazaId");
+
                     b.ToTable("Animals");
+                });
+
+            modelBuilder.Entity("Bovinos.Models.Race", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Razas");
+                });
+
+            modelBuilder.Entity("Bovinos.Models.Animal", b =>
+                {
+                    b.HasOne("Bovinos.Models.Race", "Raza")
+                        .WithMany("Animales")
+                        .HasForeignKey("RazaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Raza");
+                });
+
+            modelBuilder.Entity("Bovinos.Models.Race", b =>
+                {
+                    b.Navigation("Animales");
                 });
 #pragma warning restore 612, 618
         }

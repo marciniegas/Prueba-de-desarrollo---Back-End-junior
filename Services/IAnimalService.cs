@@ -1,5 +1,6 @@
 ﻿using Bovinos.Models;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bovinos.Services
 {
@@ -9,7 +10,18 @@ namespace Bovinos.Services
         ValidationResult ValidateAnimal(Animal animal);
 
         Animal GetAnimalById(int id);
-        Dictionary<String, int> GetActiveAnimalsCountByRace();
-        
+
+        bool Update(int id,Animal animal);
+
+        void Delete(int id);
+        List<AnimalDto> GetAnimalPage(int page, int pageSize);
+
+        void Create(Animal animal);
+
+        IEnumerable<object> GetActiveAnimalsCountByRace();
+
+
+
+
     }
 }

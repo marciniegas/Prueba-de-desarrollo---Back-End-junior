@@ -9,16 +9,6 @@
             Obtiene un animal por su identificador.
             </summary>
         </member>
-        <member name="M:Bovinos.Controllers.AnimalController.GetAll(System.Int32,System.Int32)">
-            <summary>
-            Obtener todas las entidades(usando paginación del lado del servidor)
-            </summary>
-        </member>
-        <member name="M:Bovinos.Controllers.AnimalController.Create(Bovinos.Models.Animal)">
-             <summary>
-            Crear una entidad nueva
-             </summary>
-        </member>
         <member name="M:Bovinos.Controllers.AnimalController.Update(System.Int32,Bovinos.Models.Animal)">
              <summary>
             Editar una entidad existente
@@ -29,9 +19,56 @@
             Eliminar un entidad existente
             </summary>
         </member>
-        <member name="M:Bovinos.Controllers.AnimalController.GetActiveAnimalsCountByRaze">
+        <member name="M:Bovinos.Controllers.AnimalController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Obtener todas las entidades(usando paginación del lado del servidor)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.Create(Bovinos.Models.Animal)">
+             <summary>
+            Crear una entidad nueva
+             </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.AnimalController.GetActiveAnimalsCountByRace">
             <summary>
             Obtener un servicio que retorne el número de animales activos agrupados por su raza
+            </summary>
+        </member>
+        <member name="T:Bovinos.Controllers.RaceController">
+            <summary>
+            Controlador para las operaciones relacionadas con las razas de animales.
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.#ctor(Bovinos.Services.IRaceService,Bovinos.Validators.RaceValidator)">
+            <summary>
+            Constructor del controlador de razas.
+            </summary>
+            <param name="raceService">Servicio de razas.</param>
+            <param name="raceValidator">Validador de razas.</param>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.Get(System.Int32)">
+            <summary>
+            Obtener una entidad por identificador (Raza id)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Obtener todas las entidades Raza(usando paginación del lado del servidor)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.Create(Bovinos.Models.Race)">
+            <summary>
+            Crear una entidad nueva (Raza)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.Update(System.Int32,Bovinos.Models.Race)">
+            <summary>
+            Editar una entidad existente (Raza)
+            </summary>
+        </member>
+        <member name="M:Bovinos.Controllers.RaceController.Delete(System.Int32)">
+            <summary>
+            Eliminar un entidad existente
             </summary>
         </member>
     </members>

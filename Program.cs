@@ -5,14 +5,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.WebHost.UseUrls("http://localhost:8080");
 
-// Configuración del DbContext y cadena de conexión
+// Configuración del DbContext y cadena de conexión para AnimalDbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AnimalDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+// Configuración del DbContext y cadena de conexión para RaceDbContext
+var raceDbContextConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<RaceDbContext>(options => options.UseMySql(raceDbContextConnectionString, ServerVersion.AutoDetect(raceDbContextConnectionString)));
+
 
 // Configuracion para Swagger
 builder.Services.AddSwaggerGen(c =>
@@ -24,9 +30,15 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(xmlPath);
 });
 
-// AnimalServicio a AnimalValidator
+// Inyección de dependencias AnimalServicio y AnimalValidator
 builder.Services.AddTransient<IAnimalService, AnimalService>();
 builder.Services.AddTransient<AnimalValidator>();
+
+// Inyección de dependencias Race Service y Race Validator
+builder.Services.AddTransient<IRaceService, RaceService>();
+builder.Services.AddTransient<RaceValidator>();
+
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -34,6 +46,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configuración de serialización JSON aquí
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 
 var app = builder.Build();
 
@@ -50,6 +68,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 
